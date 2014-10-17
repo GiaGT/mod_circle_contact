@@ -107,7 +107,11 @@ jQuery(document).ready(function(){
 			success: function(returnedInfo){
 
 				var message = jQuery('.met_contact_thank_you');
-				returnedInfo == 1 ? message.show() : message.html('<?php echo JText::_('VG_CONTACT_ERROR_SERVER'); ?>').show();
+				if (returnedInfo == "1") { 
+					message.html('<?php echo JText::_('VG_CONTACT_SUCCESS'); ?>').show();
+				} else {
+					message.html('<?php echo JText::_('VG_CONTACT_ERROR_SERVER'); ?>').show();
+				}
 				setInterval(function(){message.fadeOut()},5000);
 				me.removeAttr('disabled');
 
