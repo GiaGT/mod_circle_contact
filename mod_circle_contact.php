@@ -17,6 +17,7 @@ jimport('joomla.application.module.helper');
 //vars
 $moduleclass_sfx	= htmlspecialchars($params->get('moduleclass_sfx'));
 $c_subject = $params->get('subject');
+$c_emailto = $params->get('emailto');
 $c_telephone = $params->get('telephone');
 $c_address = $params->get('address');
 $c_facebook = $params->get('facebook');

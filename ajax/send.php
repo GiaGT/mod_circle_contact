@@ -6,6 +6,11 @@ define( 'DS', DIRECTORY_SEPARATOR );
 require_once ( JPATH_BASE .DS.'includes'.DS.'defines.php' );
 require_once ( JPATH_BASE .DS.'includes'.DS.'framework.php' );
 
+// Avoid email sending with file direct access
+if (empty($_REQUEST['subject']) OR  empty($_REQUEST['EMail']) OR empty($_REQUEST['Message']) ) {
+	die('0');
+}
+
 $config =& JFactory::getConfig("site");
 
 $db = JFactory::getDbo();
@@ -51,6 +56,7 @@ if(!isset($_POST["nl_sub"])){
 	$headers .= "From: "     . $fromMail. " \n".
 		"Reply-To: " . $fromMail. " \n".
 		"X-Mailer: PHP/" . phpversion();
+
 
 
 	if(mail($address, $e_subject, $mailContent, $headers)){
