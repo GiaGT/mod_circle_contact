@@ -16,8 +16,6 @@ jimport('joomla.application.module.helper');
 
 //vars
 $moduleclass_sfx	= htmlspecialchars($params->get('moduleclass_sfx'));
-$c_emailto = explode( '@', $params->get('emailto') );
-//$c_emailto = $params->get('emailto');
 $c_subject = $params->get('subject');
 $c_telephone = $params->get('telephone');
 $c_address = $params->get('address');
@@ -64,8 +62,6 @@ echo '<div class="row-fluid">
 				<div class="met_contact_form">
 					<h3 class="met_bold_one met_color">' . JText::_('VG_CONTACT_TITLE') . '</h3>
 					<form method="post" action="' . JURI::base() . 'modules/mod_circle_contact/ajax/send.php" class="met_contact_form clearfix" id="met_contact_form">
-						<input type="hidden" name="emailto1" value="' . $c_emailto[0] . '" />
-						<input type="hidden" name="emailto2" value="' . $c_emailto[1] . '" />
 						<input type="hidden" name="subject" value="' . $c_subject . '" />
 						<input type="text" name="NameSurname" required="" placeholder="' . JText::_('VG_CONTACT_NAME') . '">
 						<input type="email" name="EMail" required="" placeholder="' . JText::_('VG_CONTACT_EMAIL') . '">

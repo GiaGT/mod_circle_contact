@@ -1,10 +1,12 @@
 <?php
 define( '_JEXEC', 1 );
 define( '_VALID_MOS', 1 );
-define( 'JPATH_BASE', realpath(dirname(__FILE__).'/../..' ));
+define( 'JPATH_BASE', realpath(dirname(__FILE__).'/../../..' ));
 define( 'DS', DIRECTORY_SEPARATOR );
 require_once ( JPATH_BASE .DS.'includes'.DS.'defines.php' );
 require_once ( JPATH_BASE .DS.'includes'.DS.'framework.php' );
+
+$config =& JFactory::getConfig("site");
 
 $db = JFactory::getDbo();
 $query = $db->getQuery(true);
@@ -28,10 +30,9 @@ $params->loadString($row->params, 'JSON');
 // Configuration Settings
 $address = $params->get("emailto");
 $e_subject = $_REQUEST['subject'];
-$fromMail = $_REQUEST['EMail'];
+$fromMail = $config->get( 'mailfrom' );
 	
 if(!isset($_POST["nl_sub"])){
-//WELCOME AJAX CONTACT FORM MAILER
 
 	//Stripping tags so if even user writes tags like <div></div> or <a href=""></a>, these are just getting cleared.
 	//Making ready the content for e-mail by the way
