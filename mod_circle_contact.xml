@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="2.5"
+	client="site"
+	method="upgrade">
+	<name>Circle Contact</name>
+	<author>Valentín García</author>
+	<creationDate>June 2013</creationDate>
+	<copyright>Copyright (C) 2012 Valentín García. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>htmgarcia@gmail.com</authorEmail>
+	<authorUrl>www.valentingarcia.com.mxg</authorUrl>
+	<version>1.0.6</version>
+	<description>
+		<![CDATA[
+		Circle Contact *for Cacoon Template only
+		<style type='text/css'>
+		.panelform .adminformlist li label
+			{text-align:right !important; font-family:Calibri; font-size:12px;}
+		
+		#jform_params_block1-lbl, #jform_params_block2-lbl, #jform_params_block3-lbl
+			{font-weight:bold;text-align:left !important;color:#fff;background:#333;border-radius:4px;padding:5px 15px;width:100% !important;font-family: Calibri;}
+		</style>
+		]]>
+	</description>
+	<files>
+		<folder module="mod_circle_contact">ajax</folder>
+		<filename module="mod_circle_contact">mod_circle_contact.php</filename>
+		<filename module="mod_circle_contact">mod_circle_contact.xml</filename>
+		<filename module="mod_circle_contact">index.html</filename>		
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="block1" type="spacer" label="Form" />
+				<field name="emailto" type="text" default="" label="Email to:" description="The email account to receive the messages." />
+				<field name="subject" type="text" default="" label="Subject:" description="The Subject of the message." />
+				<field name="block2" type="spacer" label="Info" />
+				<field name="telephone" type="text" default="" label="Telephone" description="" />
+				<field name="address" type="text" default="" label="Address" description="" />
+				<field name="facebook" type="text" default="" label="Facebook url" description="" />
+				<field name="twitter" type="text" default="" label="Twitter url" description="" />
+				<field name="pinterest" type="text" default="" label="Pinterest url" description="" />
+				<field name="google" type="text" default="" label="Google+ url" description="" />
+				<field name="rss" type="text" default="" label="RSS url" description="" />
+				<field name="map_latlon" type="text" default="" label="Latitute, Longitude" description="" />
+				<!--field name="justdata" type="textarea" default="" filter="raw" label="Custom Data - First Block (HTML allowed)" description="Leave in blank to disable" cols="55" rows="10" /-->
+				<!--field name="justdata2" type="textarea" default="" filter="raw" label="Custom Data - Seconf Block (HTML allowed)" description="Leave in blank to disable" cols="55" rows="10" />
+				<field name="justdata3" type="textarea" default="" filter="raw" label="Custom Data - Third Block (HTML allowed)" description="Leave in blank to disable" cols="55" rows="10" /-->
+			</fieldset>
+			<fieldset name="advanced">
+				<field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
