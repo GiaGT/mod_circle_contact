@@ -1,6 +1,32 @@
 <?php
+define( '_JEXEC', 1 );
+define( '_VALID_MOS', 1 );
+define( 'JPATH_BASE', realpath(dirname(__FILE__).'/../..' ));
+define( 'DS', DIRECTORY_SEPARATOR );
+require_once ( JPATH_BASE .DS.'includes'.DS.'defines.php' );
+require_once ( JPATH_BASE .DS.'includes'.DS.'framework.php' );
+
+$db = JFactory::getDbo();
+$query = $db->getQuery(true);
+
+$query->select(
+		$db->quoteName(array('params')))
+      	->from($db->quoteName('#__modules'))
+      	->where($db->quoteName('module') . ' = '. $db->quote('mod_circle_contact')
+   		);
+
+$db->setQuery($query,0,1);
+$rows = $db->loadObjectList();
+
+foreach ($rows as $row) {
+   $row->params;
+}
+
+$params = new JRegistry;
+$params->loadString($row->params, 'JSON');
+
 // Configuration Settings
-$address = $_REQUEST['emailto1'] . '@' . $_REQUEST['emailto2'];
+$address = $params->get("emailto");
 $e_subject = $_REQUEST['subject'];
 $fromMail = $_REQUEST['EMail'];
 	
