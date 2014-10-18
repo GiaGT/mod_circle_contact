@@ -1,4 +1,12 @@
 <?php
+/**
+ * @autor       Giacomo M. Galatone
+ * @website     www.exasys.it
+ * @package		Joomla.Site
+ * @subpackage	mod_circle_contact
+ * @copyright	Copyright (C) 2014 Giacomo Galatone. All rights reserved.
+ * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ */
 
 class ajaxMailSend {
 
